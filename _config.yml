@@ -1,0 +1,11 @@
+# Site settings
+title: MobileOverlord
+email: jschneck@mac.com
+description: ""
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.mobileoverlord.com" # the base hostname & protocol for your site
+twitter_username: mobileoverlord
+github_username:  mobileoverlord
+
+# Build settings
+markdown: kramdown
