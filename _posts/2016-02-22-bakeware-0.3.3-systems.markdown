@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "Nerves Systems v0.3.3 and bake v0.2.4"
+date:   2016-02-20 10:00:00
+categories: Nerves Bakeware
+banner_image: "/media/bakeware/home.jpg"
+featured: true
+comments: true
+---
+Nerves system v0.3.3 release with underlying support for Wifi, DNS resolv bug fixes and so much more. Read on for more information on what is included in these systems, which targets they are for, and where we are going with things.
+
+We are also releasing bake v0.2.4 which includes a fix for better supporting cross compiling of ports and nifs in rebar.
+
+<!--more-->
+
+## Targets
+* bbb
+  * BeagleBone Black
+* rpi
+  * Raspberry Pi A+/B+
+  * Raspberry Pi Zero
+* rpi2
+  * Raspberry Pi 2 B
+* galileo
+  * Intel Galileo Rev2
+
+## Release Notes
+
+### New features
+* Updated Linux kernel to 4.1 on Raspberry Pi platforms. The Raspberry Pi Zero now works. This is not thoroughly tested.
+* Enable WiFi on Raspberry Pi. Application support is needed, so this is only one step to getting WiFi working out of the box.
+* Update buildroot to 2016.02-rc1 to pull in current Raspberry Pi support.
+* Switch default DNS resolver to use Erlang's internal support
+
+### Bug fixes
+* Remove exrm check from nerves-elixir.mk since it's also possible to use the nerves application to package the release
+
+### Package updates
+* fwup v0.6.0
+* Many others from the Buildroot update
+
+## Upcoming Development
+
+### Wifi
+In this version of the nerves system we are enabling WPA Supplicant and a set of common WiFi drivers. Even though this is enabled, it will still require application support. We are working on porting Frank Hunleth's wpa_supplicant and wifi networking modules over to `nerves_io_*`.
+
+### Universal Device Tree for BBB
+Currently, the method for including additional device tree overlays for BeagleBone Black, you would need to add them to the underlying system and compile with `nerves-system-br`. This method is inflexible for rapid development using a minimal nerves image. We are working on including support for modifying the BBB device tree from the runtime using an elixir application api.
+
+## Updating your apps
+You can update you existing Nerves app using
+
+`bake system update [--target target_name]`
+
+Once updated you can burn new firmware using
+
+`bake firmware [--target target_name]`
+
+## Updating bake
+
+If you are compiling NIF or Ports in your app, you will probably want to update bake to the latest version. You can do this by running
+
+`bake update`
