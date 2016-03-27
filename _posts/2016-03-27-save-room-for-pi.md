@@ -7,7 +7,7 @@ banner_image: "/media/bakeware/home.jpg"
 featured: true
 comments: true
 ---
-Nerves system 0.4.0 release is going to be jam packed with wonderful goodies like support for more Pi's. With the release of 0.4.0-rc3 brings Pi3 support with thanks to [@fairbanksg][https://github.com/fairbanksg]. All these new features are just begging to be enabled.
+Nerves system 0.4.0 release is going to be jam packed with wonderful goodies like support for more Pi's. With the release of 0.4.0-rc3 brings Pi3 support with thanks to [fairbanksg](https://github.com/fairbanksg). All these new features are just begging to be enabled.
 <!--more-->
 
 # The Pi Collection
